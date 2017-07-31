@@ -31,11 +31,10 @@ namespace Docear4Word
 		static CiteProcRunner()
 		{
 			var jsonScript = File.ReadAllText(Path.Combine(FolderHelper.ApplicationRootDirectory, @"JavaScript\JSON.js"));
-			var xmlDomScript = File.ReadAllText(Path.Combine(FolderHelper.ApplicationRootDirectory, @"JavaScript\xmldom.js"));
 			var citeProcScript = File.ReadAllText(Path.Combine(FolderHelper.ApplicationRootDirectory, @"JavaScript\citeproc.js"));
 			var sysScript = File.ReadAllText(Path.Combine(FolderHelper.ApplicationRootDirectory, @"JavaScript\Sys.js"));
 
-			MergedScript = BuildScript(jsonScript, xmlDomScript, citeProcScript, sysScript);
+			MergedScript = BuildScript(jsonScript, citeProcScript, sysScript);
 		}
 
 		readonly Dictionary<string, JSRawCitationItem> jsRawCitationItemCache = new Dictionary<string, JSRawCitationItem>();

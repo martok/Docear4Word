@@ -13,7 +13,7 @@ namespace Docear4Word
     [ComVisible(true)]
     public abstract class JavaScriptRunner: IJSContext, IDisposable
     {
-        const string HtmlPrefix = @"<!DOCTYPE html><html><head><meta charset='utf-8'><script>";
+        const string HtmlPrefix = @"<!DOCTYPE html><html><head><meta charset='utf-8'><meta http-equiv='X-UA-Compatible' content='IE=Edge'><script>";
         //const string HtmlPrefix = @"<script>";
         const string HtmlSuffix = @"</script></head><body></body></html>";
         //const string HtmlSuffix = @"</script>";
@@ -252,7 +252,7 @@ namespace Docear4Word
 
     	public object CreateJSObjectFromJSON(string json)
     	{
-    		return Call(CreateJSObjectFromJSONFunction, json);
+            return Call(CreateJSObjectFromJSONFunction, json.Replace('\v', '\n'));
     	}
 
     	public string ToJSON(object jsObject, string space = "\t")
