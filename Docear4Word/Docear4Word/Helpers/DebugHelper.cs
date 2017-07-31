@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace Docear4Word
 {
@@ -12,7 +13,11 @@ namespace Docear4Word
 			return new EventListener(target);
 		}
 */
-
+        public static void Log(object msg)
+        {
+            var str = "--------------------   " + DateTime.Now.ToLongTimeString() + "   --------------------\r\n" + msg.ToString() + "\r\n";
+            File.AppendAllText(FolderHelper.DocearErrorLogFilename, str);
+        }
 	}
 
 /*

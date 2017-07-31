@@ -173,6 +173,10 @@ namespace Docear4Word
 			{
 				suspendRedrawCount++;
 				document.Application.ScreenUpdating = false;
+                if (suspendRedrawCount == 1)
+                {
+                    WordHelper.UndoBlockBegin(document.Application);
+                }
 			}
 
 			void ResumeRedraw()
@@ -180,7 +184,8 @@ namespace Docear4Word
 				suspendRedrawCount--;
 
 				if (suspendRedrawCount == 0)
-				{
+                {
+                    WordHelper.UndoBlockEnd(document.Application);
 					document.Application.ScreenUpdating = true;
 				}
 			}
