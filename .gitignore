@@ -1,2 +1,8 @@
 Docear4Word/Docear4WordSetup/*/Debug/*
 Docear4Word/Docear4WordSetup/*/Release/*
+Docear4Word/Docear4Word/*/Debug/*
+Docear4Word/Docear4Word/*/Release/*
+Docear4Word/Docear4Word.UnitTest/*/Debug/*
+Docear4Word/Docear4Word.UnitTest/*/Release/*
+Docear4Word/JavaScriptIntegration/*/Debug/*
+Docear4Word/JavaScriptIntegration/*/Release/*
