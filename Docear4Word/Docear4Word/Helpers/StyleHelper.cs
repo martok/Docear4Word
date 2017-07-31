@@ -82,6 +82,21 @@ namespace Docear4Word
 			return styleInfo;
 		}
 
+        public static void LoadFromWebOrCache(XmlDocument doc, string url)
+        {
+            var cacheid = Helper.sha256_hash(url);
+            var cachefile = Path.Combine(FolderHelper.DocearStylesFolder, cacheid + ".csl-cache");
+            if (File.Exists(cachefile))
+            {
+                doc.Load(cachefile);
+            }
+            else
+            {
+                doc.Load(url);
+                doc.Save(cachefile);
+            }
+        }
+
 		static IEnumerable<FileInfo> GetStyleFiles(string path)
 		{
 			try
