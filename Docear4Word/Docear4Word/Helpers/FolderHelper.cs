@@ -6,7 +6,8 @@ namespace Docear4Word
 {
 	public static class FolderHelper
 	{
-		const string StylePath = @"Docear4Word\Styles";
+        const string StylePath = @"Docear4Word\Styles";
+        const string LocalePath = @"Docear4Word\Locales";
 		const string PersonalDataPath = @"Docear4Word";
 		const string ErrorLogFilename = @"Docear4WordErrorLog.txt";
 
@@ -44,7 +45,12 @@ namespace Docear4Word
 			get { return Path.Combine(CommonApplicationFolder, StylePath); }
 		}
 
-		public static string DocearPersonalDataFolder
+        public static string DocearLocalesFolder
+        {
+            get { return Path.Combine(CommonApplicationFolder, LocalePath); }
+        }
+
+        public static string DocearPersonalDataFolder
 		{
 			get { return Path.Combine(PersonalFolder, PersonalDataPath); }
 		}

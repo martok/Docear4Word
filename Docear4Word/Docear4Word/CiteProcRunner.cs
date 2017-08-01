@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 
 using Docear4Word.Annotations;
 using Docear4Word.BibTex;
@@ -26,6 +27,7 @@ namespace Docear4Word
 		const string UpdateItemsCommand = "updateItems";
 
 		static readonly string MergedScript;
+        static readonly Regex LocaleRegex;
 		public static string ProcessorVersion { get; private set; }
 
 		static CiteProcRunner()
@@ -35,6 +37,8 @@ namespace Docear4Word
 			var sysScript = File.ReadAllText(Path.Combine(FolderHelper.ApplicationRootDirectory, @"JavaScript\Sys.js"));
 
 			MergedScript = BuildScript(jsonScript, citeProcScript, sysScript);
+
+            LocaleRegex = new Regex(@"[a-z]{2}-[a-z]{2}", RegexOptions.IgnoreCase);
 		}
 
 		readonly Dictionary<string, JSRawCitationItem> jsRawCitationItemCache = new Dictionary<string, JSRawCitationItem>();
@@ -234,6 +238,17 @@ namespace Docear4Word
 		{
 			return FetchOrCreateJSRawCitationItem(id).JSObject;
 		}
+
+        public string Script_GetLocaleXML(string lang)
+        {
+            if (LocaleRegex.IsMatch(lang)) {
+                var fn = Path.Combine(FolderHelper.DocearLocalesFolder, @"locales-" + lang + ".xml");
+                if (File.Exists(fn)) {
+                    return File.ReadAllText(fn);
+                }
+            }
+            return "";
+        }
 
 		JSRawCitationItem FetchOrCreateJSRawCitationItem(string id)
 		{

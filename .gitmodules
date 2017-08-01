@@ -1,0 +1,3 @@
+[submodule "Docear4Word/Docear4Word/csl-locales"]
+	path = Docear4Word/Docear4Word/csl-locales
+	url = https://github.com/citation-style-language/locales.git
