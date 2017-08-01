@@ -29,7 +29,7 @@ Sys.prototype.retrieveItem = function (id) {
 };
 
 Sys.prototype.retrieveLocale = function (lang) {
-	return locale[lang];
+	return locale[lang] || {};
 };
 
 Sys.prototype.getAbbreviation = function (dummy, obj, jurisdiction, vartype, key) {
