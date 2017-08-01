@@ -1,0 +1,13 @@
+diff --git a/Docear4Word/Docear4Word/JavaScript/citeproc.js b/Docear4Word/Docear4Word/JavaScript/citeproc.js
+index 9b9e80e..39fd7bb 100644
+--- a/Docear4Word/Docear4Word/JavaScript/citeproc.js
++++ b/Docear4Word/Docear4Word/JavaScript/citeproc.js
+@@ -12200,7 +12200,7 @@ CSL.Transform = function (state) {
+             if (stopOrig) {
+                 ret = {name:"", usedOrig:stopOrig};
+             } else {
+-                ret = {name:Item[field], usedOrig:false, locale:getFieldLocale(Item,field)};
++                ret = {name:Item[field], usedOrig:true, locale:getFieldLocale(Item,field)};
+             }
+             hasVal = true;
+             usingOrig = true;

@@ -12200,7 +12200,7 @@ CSL.Transform = function (state) {
             if (stopOrig) {
                 ret = {name:"", usedOrig:stopOrig};
             } else {
-                ret = {name:Item[field], usedOrig:false, locale:getFieldLocale(Item,field)};
+                ret = {name:Item[field], usedOrig:true, locale:getFieldLocale(Item,field)};
             }
             hasVal = true;
             usingOrig = true;
