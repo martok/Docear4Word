@@ -85,7 +85,7 @@ namespace Docear4Word
         public static void LoadFromWebOrCache(XmlDocument doc, string url)
         {
             var cacheid = Helper.sha256_hash(url);
-            var cachefile = Path.Combine(FolderHelper.DocearStylesFolder, cacheid + ".csl-cache");
+            var cachefile = Path.Combine(FolderHelper.DocearStylesFolder, cacheid + ".cache-csl");
             if (File.Exists(cachefile))
             {
                 doc.Load(cachefile);
