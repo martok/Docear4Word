@@ -226,7 +226,19 @@ namespace Docear4Word
 				              	  	  	? "One of the references"
 				              	  	  	: missingItemCount + " references";
 
-				message += " could not be found in the current database\r\nIf you continue and make changes, these will be lost.\r\n\r\nAre you sure you want to continue?";
+                message += " could not be found in the current database.\r\n";
+
+                var f = new List<String>();
+                for (var i = 0; i < inlineCitation.CitationItems.Length; i++) {
+                    var ci = inlineCitation.CitationItems[i];
+                    if (null==entryAndPagePairs.Find(item => item.ID == ci.ID)) {
+                        f.Add(ci.ID);
+                    }
+                }
+                f.Sort();
+                message += "Missing: " + String.Join(", ", f.ToArray()) + "\r\n";
+
+                message += "If you continue and make changes, these will be lost.\r\n\r\nAre you sure you want to continue?";
 
 				if (MessageBox.Show(message, "Edit Items Missing References Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.No)
 				{
