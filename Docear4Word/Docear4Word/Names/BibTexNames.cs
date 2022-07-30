@@ -16,6 +16,7 @@ namespace Docear4Word
 		public const string HowPublished = "howpublished";
 		public const string Institution = "institution";
 		public const string Journal = "journal";  // Used
+		public const string JournalTitle = "journaltitle";  // Used
 		public const string Key = "key"; // Not Applicable
 		public const string Month = "month"; // Used
 		public const string Note = "note"; // Used

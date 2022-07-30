@@ -126,8 +126,8 @@ namespace Docear4Word
 
 				ApplyTag(CSLNames.Title, BibTexNames.Title, BibTexNames.Chapter);
 
-				ApplyTag(CSLNames.ContainerTitle, BibTexNames.Journal, BibTexNames.BookTitle);
-				
+				ApplyTag(CSLNames.ContainerTitle, BibTexNames.JournalTitle, BibTexNames.Journal, BibTexNames.BookTitle);
+
 				ApplyTag(CSLNames.CollectionTitle, BibTexNames.Series);
 
 				ApplyNameTag(item.Editor, BibTexNames.Editor);
