@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Docear4Word-mod"
-#define MyAppVersion "1.4.0"
+#define MyAppVersion "1.4.1"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
